@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+> Build a form
+
+> Route --> search_stocks
+
+> Controller -> action - stock_controller.rb search_stocks
