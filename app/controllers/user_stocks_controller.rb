@@ -1,11 +1,11 @@
 class UserStocksController < ApplicationController
 
 	def create
-		stock = Stock.find_by_ticker(params[:stock_ticker])
+		stock = Stock.find_by_ticker(params[:stock_ticker]) #Checks if exists in db first
 		if stock.blank?
-			stock = Stock.new_from_lookup(params[:stock_ticker])
+			stock = Stock.new_from_lookup(params[:stock_ticker]) #from the web
 			stock.save
-		end
+		end	
 		@user_stock = UserStock.create(user: current_user, stock: stock)
 		flash[:success] = "Stock #{@user_stock.stock.name} was successfully added to your portfolio"
 		redirect_to my_portfolio_path

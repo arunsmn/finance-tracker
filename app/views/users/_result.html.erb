@@ -15,7 +15,7 @@
 		<% else %>
 			<span class="label label-default">
 				Stock cannot be added because you have already added
-				<% if !current_user.under_stock_limit? %>
+				<% if !current_user.stock_limit? %>
 		      10 stocks
 		    <% elsif current_user.stock_already_added?(@stock.ticker) %>
 		      this stock
